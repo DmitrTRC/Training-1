@@ -9,3 +9,22 @@
 Если правильный ответ то напечатать - Молодец, правильно !
 Если нет - Иди читай книжки ! Неправильно!
 """
+questions = {
+    'What the speed of lite ?': {
+        'answers': [
+            '299 000 km/s',
+            '100 000 km/h',
+            '10 000 000 km/s',
+        ],
+        'correct': 1
+    },
+    'How many bones human has ?': {
+        'answers': [
+            '133',
+            '206-208'
+        ],
+        'correct': 2
+    },
+
+    'Total chemical numbers'
+}
