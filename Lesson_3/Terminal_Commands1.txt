@@ -1,0 +1,4 @@
+ls : показать список файлов в директории -la ( полный список )
+cd : Change Directory
+cp : Copy Files / Directory
+rm : Delete files / directories
