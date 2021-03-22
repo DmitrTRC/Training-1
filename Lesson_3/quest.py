@@ -9,22 +9,50 @@
 Если правильный ответ то напечатать - Молодец, правильно !
 Если нет - Иди читай книжки ! Неправильно!
 """
-questions = {
-    'What the speed of lite ?': {
-        'answers': [
-            '299 000 km/s',
-            '100 000 km/h',
-            '10 000 000 km/s',
-        ],
-        'correct': 1
-    },
-    'How many bones human has ?': {
-        'answers': [
-            '133',
-            '206-208'
-        ],
-        'correct': 2
-    },
+import time
 
-    'Total chemical numbers'
-}
+
+class Question:
+    def __init__(self, quest, ans_arr, ans):
+        self.question = quest
+        self.answers = ans_arr
+        self._answer = int(ans)
+
+    def show(self):
+        print(self.question, end='\n\n')
+        time.sleep(1)
+        for index, answer in enumerate(self.answers, 1):
+            print(f'{index}. {answer}')
+        print()
+
+    def get_answer(self):
+        return self._answer
+
+
+def load_questions():
+    questions_arr = [Question(
+        'Speed of light is ? ', ['255 000 Km/h', '300 000 Km/s'], 2
+    ), Question(
+        'How many states in US ?', ['50', '53', '51'], 1
+    ), Question(
+        'The year of death A.S. Pushkin ?', ['1799', '1827', '1837'], 3
+    )]
+    return questions_arr
+
+
+def main():
+    questions = load_questions()
+    wins = 0
+    for question in questions:
+        question.show()
+        answer = int(input('Your answer -> '))
+        if answer == question.get_answer():
+            wins += 1
+            print(f'Correct! Total WINS: {wins}', end='\n\n')
+        else:
+            print(f'OOPS... FAIL!', end='\n\n')
+    print(f'You win {wins} points')
+
+
+if __name__ == '__main__':
+    main()
