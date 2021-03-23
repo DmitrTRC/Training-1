@@ -10,6 +10,7 @@
 Если нет - Иди читай книжки ! Неправильно!
 """
 import time
+from tqdm import tqdm
 
 
 class Question:
@@ -22,7 +23,7 @@ class Question:
         print(self.question, end='\n\n')
         time.sleep(1)
         for index, answer in enumerate(self.answers, 1):
-            print(f'{index}. {answer}')
+            print(f'\n{index}. {answer}')
         print()
 
     def get_answer(self):
@@ -43,7 +44,8 @@ def load_questions():
 def main():
     questions = load_questions()
     wins = 0
-    for question in questions:
+
+    for question in tqdm(questions, unit='Question'):
         question.show()
         answer = int(input('Your answer -> '))
         if answer == question.get_answer():
